@@ -18,13 +18,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.team1816.robot.commands.BlinkLedCommand;
-import frc.team1816.robot.commands.DriveTrajectoryAuto;
-import frc.team1816.robot.commands.GamepadClimbCommand;
-import frc.team1816.robot.commands.GamepadDriveCommand;
-import frc.team1816.robot.paths.TrajectoryGenerator;
 import frc.team1816.robot.subsystems.*;
-import frc.team1816.robot.subsystems.LedManager.RobotStatus;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -7,12 +7,6 @@ import com.edinarobotics.utils.gamepad.gamepadfilters.GamepadFilter;
 import com.edinarobotics.utils.gamepad.gamepadfilters.GamepadFilterSet;
 import com.edinarobotics.utils.gamepad.gamepadfilters.SquareFilter;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
-import frc.team1816.robot.commands.*;
-import frc.team1816.robot.subsystems.Birdbeak;
-import frc.team1816.robot.subsystems.CameraMount;
-import frc.team1816.robot.subsystems.CargoCollector;
-import frc.team1816.robot.subsystems.CargoShooter;
-import frc.team1816.robot.subsystems.Climber;
 import frc.team1816.robot.subsystems.Drivetrain;
 
 import java.util.ArrayList;

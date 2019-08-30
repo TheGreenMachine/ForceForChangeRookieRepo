@@ -5,7 +5,6 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.IMotorController;
 import com.ctre.phoenix.motorcontrol.IMotorControllerEnhanced;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.sensors.PigeonIMU;
 
 import com.edinarobotics.utils.checker.CheckFailException;
 import com.edinarobotics.utils.checker.Checkable;
@@ -27,11 +26,7 @@ import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-import frc.team1816.robot.Kinematics;
 import frc.team1816.robot.Robot;
-import frc.team1816.robot.RobotState;
-import frc.team1816.robot.planners.DriveMotionPlanner;
-
 
 @RunTest
 public class Drivetrain extends Subsystem implements Checkable {
