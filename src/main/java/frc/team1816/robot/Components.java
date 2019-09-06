@@ -9,19 +9,12 @@ import frc.team1816.robot.subsystems.*;
 public class Components {
     private static Components instance;
 
-    public Birdbeak birdbeak;
-    public LedManager ledManager;
-    public Climber climber;
-    public CargoCollector collector;
     public Drivetrain drivetrain;
-    public CargoShooter shooter;
-    public CameraMount shifter;
-    public RobotState robotState;
 
     private Components() {
         RobotFactory factory = Robot.factory;
 
-        if (factory.isImplemented(Birdbeak.NAME)) {
+        /*if (factory.isImplemented(Birdbeak.NAME)) {
             birdbeak = new Birdbeak();
         }
         if (factory.isImplemented(Climber.NAME)) {
@@ -43,17 +36,14 @@ public class Components {
             shifter = new CameraMount();
         }
     }
+    */
 
-    /**
-     * Returns the singleton instance of Components. Initializes it if there is no
-     * current instance.
-     *
-     * @return The current singleton instance of Components.
-     */
-    public static Components getInstance() {
-        if (instance == null) {
-            instance = new Components();
-        }
-        return instance;
+
+        /**
+         * Returns the singleton instance of Components. Initializes it if there is no
+         * current instance.
+         *
+         * @return The current singleton instance of Components.
+         */
     }
 }
