@@ -2,6 +2,7 @@ package frc.team1816.robot;
 
 import com.edinarobotics.utils.hardware.RobotFactory;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.command.Scheduler;
 
 public class Robot extends TimedRobot {
 
@@ -9,7 +10,11 @@ public class Robot extends TimedRobot {
             System.getenv("ROBOT_NAME") != null ? System.getenv("ROBOT_NAME") : "zenith");
 
     @Override
-    public void robotInit() { }
+    public void robotInit() {
+        Controls.getInstance();
+        Components.getInstance();
+
+    }
 
     @Override
     public void disabledInit() { }
@@ -18,7 +23,9 @@ public class Robot extends TimedRobot {
     public void autonomousInit() { }
 
     @Override
-    public void teleopInit() { }
+    public void teleopInit() {
+
+    }
 
     @Override
     public void testInit() { }
@@ -31,7 +38,9 @@ public class Robot extends TimedRobot {
     public void autonomousPeriodic() { }
 
     @Override
-    public void teleopPeriodic() { }
+    public void teleopPeriodic() {
+        Scheduler.getInstance().run();
+    }
 
     @Override
     public void testPeriodic() { }
