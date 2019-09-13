@@ -8,8 +8,11 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.team1816.robot.Controls;
 
 public class Drivetrain extends Subsystem implements Checkable {
+    private double leftPower;
+    private double rightPower;
     private TalonSRX left;
     private TalonSRX right;
+    private boolean outputChanged;
 
     public Drivetrain() {
         left = new TalonSRX(2);
@@ -19,16 +22,18 @@ public class Drivetrain extends Subsystem implements Checkable {
     }
 
     public void setPower(double leftPower,double rightPower) {
-        left.set(ControlMode.PercentOutput,leftPower);
-        right.set(ControlMode.PercentOutput,rightPower);
+        this.leftPower=leftPower;
+        this.rightPower=rightPower;
+        outputChanged=true;
     }
 
     @Override
     public void periodic() {
-        double throttle=Controls.getInstance().getThrottle();
-        double turn=Controls.getInstance().getTurn();
-        setPower(throttle+turn,throttle-turn);
-
+        if(outputChanged){
+            left.set(ControlMode.PercentOutput,leftPower);
+            right.set(ControlMode.PercentOutput,rightPower);
+            outputChanged=false;
+        }
     }
 
     @Override
