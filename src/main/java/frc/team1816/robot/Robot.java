@@ -3,6 +3,7 @@ package frc.team1816.robot;
 import com.edinarobotics.utils.hardware.RobotFactory;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import frc.team1816.robot.commands.GamepadArmCommand;
 import frc.team1816.robot.commands.GamepadDriveCommand;
 
 public class Robot extends TimedRobot {
@@ -26,7 +27,7 @@ public class Robot extends TimedRobot {
     @Override
     public void teleopInit() {
         Components.getInstance().drivetrain.setDefaultCommand(new GamepadDriveCommand());
-
+        Components.getInstance().arm.setDefaultCommand(new GamepadArmCommand());
     }
 
     @Override

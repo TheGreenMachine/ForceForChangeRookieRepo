@@ -1,18 +1,16 @@
 package frc.team1816.robot.commands;
 
-import com.edinarobotics.utils.math.Math1816;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.team1816.robot.Components;
 import frc.team1816.robot.Controls;
 import frc.team1816.robot.subsystems.Arm;
 import frc.team1816.robot.subsystems.Drivetrain;
 
-public class GamepadDriveCommand extends Command {
-    private Drivetrain drivetrain;
-    public GamepadDriveCommand() {
-        drivetrain=Components.getInstance().drivetrain;
-        requires(drivetrain);
-
+public class GamepadArmCommand extends Command {
+    private Arm arm;
+    public GamepadArmCommand() {
+        arm=Components.getInstance().arm;
+        requires(arm);
     }
 
     @Override
@@ -22,9 +20,9 @@ public class GamepadDriveCommand extends Command {
 
     @Override
     protected void execute() {
-        double throttle=Controls.getInstance().getThrottle();
-        double turn=Controls.getInstance().getTurn();
-        drivetrain.setPower(throttle+turn,throttle-turn);
+        double armPower=Controls.getInstance().getArm();
+        System.out.println(armPower);
+        // arm.setPower(armPower);
     }
 
     @Override

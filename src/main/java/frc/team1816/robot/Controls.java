@@ -15,6 +15,7 @@ public class Controls {
     public double getTurn(){
         return gamepad.getRightX();
     }
+    public double getArm(){return gamepad.getDPadY()*0.75;}
     public static Controls getInstance(){
         if (instance == null){
             instance = new Controls();
