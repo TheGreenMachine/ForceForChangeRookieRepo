@@ -21,6 +21,7 @@ public class GamepadArmCommand extends Command {
     @Override
     protected void execute() {
         double armPower=Controls.getInstance().getArm();
+        arm.setPower(armPower);
         System.out.println(armPower);
         // arm.setPower(armPower);
     }
