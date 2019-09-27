@@ -1,6 +1,7 @@
 package frc.team1816.robot;
 
 import com.edinarobotics.utils.gamepad.Gamepad;
+import frc.team1816.robot.commands.GamepadArmPosCommand;
 
 public class Controls {
     private static Controls instance;
@@ -8,6 +9,7 @@ public class Controls {
 
     private Controls() {
         gamepad=new Gamepad(0);
+        gamepad.diamondDown().whenPressed(new GamepadArmPosCommand());
     }
     public double getThrottle(){
          return gamepad.getLeftY();
