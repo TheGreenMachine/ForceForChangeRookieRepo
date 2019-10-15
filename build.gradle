@@ -45,7 +45,7 @@ def includeDesktopSupport = true
 // Maven central needed for JUnit
 repositories {
     mavenCentral()
-    maven { url "https://jitpack.io" }
+    maven { url "https://www.jitpack.io" }
 }
 
 checkstyle {

@@ -2,12 +2,18 @@ package frc.team1816.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+import com.ctre.phoenix.motorcontrol.IMotorController;
+import com.ctre.phoenix.motorcontrol.IMotorControllerEnhanced;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.edinarobotics.utils.checker.CheckFailException;
 import com.edinarobotics.utils.checker.Checkable;
+import com.edinarobotics.utils.hardware.RobotFactory;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.team1816.robot.Robot;
 
 public class Arm extends Subsystem implements Checkable {
+    public static final String NAME = "arm";
+
     private double kF = 0;
     private double kP = 5.0;
     private double kI = 0;
@@ -20,15 +26,15 @@ public class Arm extends Subsystem implements Checkable {
     private static final int kTimeoutMs = 30;
     private double power;
     private double position;
-    private TalonSRX arm;
+    private IMotorControllerEnhanced arm;
     private boolean outputChanged=true;
     private boolean percentMode=false;
 
     public Arm(){
         arm=new TalonSRX(4);
-
+        RobotFactory factory= Robot.factory;
         configArm();
-
+        arm= (IMotorControllerEnhanced) factory.getMotor(NAME,"arm");
         // Calibrate quadrature encoder with absolute mag encoder
         int absolutePosition = arm.getSensorCollection().getPulseWidthPosition();
         /* Mask out overflows, keep bottom 12 bits */
@@ -49,10 +55,10 @@ public class Arm extends Subsystem implements Checkable {
         arm.configPeakOutputForward(1,kTimeoutMs);
         arm.configPeakOutputReverse(-1,kTimeoutMs);
         this.setPID(kP,kI,kD);
-        arm.configMotionAcceleration(19);
+        arm.configMotionAcceleration(19,kTimeoutMs);
         arm.configAllowableClosedloopError(kPIDLoopIdx, ALLOWABLE_CLOSED_LOOP_ERROR, kTimeoutMs);
-        arm.configForwardSoftLimitEnable(true);
-        arm.configReverseSoftLimitEnable(true);
+        arm.configForwardSoftLimitEnable(true,kTimeoutMs);
+        arm.configReverseSoftLimitEnable(true,kTimeoutMs);
         arm.configForwardSoftLimitThreshold(FORWARD_SENSOR_LIMIT,kTimeoutMs);
         arm.configReverseSoftLimitThreshold(REVERSE_SENSOR_LIMIT, kTimeoutMs);
     }

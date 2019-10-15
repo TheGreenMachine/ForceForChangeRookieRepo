@@ -8,18 +8,10 @@ subsystems:
       rightMain: 7
       rightSlaveOne: 5
       rightSlaveTwo: 6
-  climber:
-    implemented: false
-  cargocollector:
-    implemented: false
-  birdbeak:
-    implemented: false
-  cargoshooter:
-    implemented: false
-  ledmanager:
-    implemented: false
-  cameramount:
-    implemented: false
+  arm:
+    implemented: true
+    talons:
+      armTalon: 4
 constants:
   sensorPhase: 1
   loggingEnabled: 0
